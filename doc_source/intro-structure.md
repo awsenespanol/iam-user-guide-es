@@ -14,7 +14,7 @@ Antes de crear los usuarios, usted debe comprender cómo funciona IAM\. IAM prop
 
 ## Principal<a name="intro-structure-principal"></a>
 
-Una entidad principal es una entidad que puede realizar una acción en un recurso de AWS\. Su usuario de IAM administrativo es su primera entidad principal\. Con el paso del tiempo, puede condecer a los usuarios y servicios asumir un rol\. Puede permitir a los usuarios federados o el acceso mediante programación para permitir a una aplicación acceder a su cuenta de AWS. Los usuarios, los roles, los usuarios federados y las aplicaciones son todos ellos entidades principales de AWS\.
+Una entidad principal es una entidad que puede realizar una acción en un recurso de AWS\. Su usuario de IAM administrativo es su primera entidad principal\. Con el paso del tiempo, usted puede condecer a sus usuarios y los servicios asumir un rol\. Puede permitir a los usuarios federados o puede permitir el acceso mediante programación para que una aplicación pueda acceder a su cuenta de AWS. Los usuarios, los roles, los usuarios federados y las aplicaciones son todos entidades principales de AWS\.
 
 ## Solicitud<a name="intro-structure-request"></a>
 
@@ -24,7 +24,7 @@ Cuando una entidad principal intenta utilizar la Consola de administración de A
 + Recursos sobre los cuales se realizan las acciones
 + Información principal, incluido el entorno desde el cual se realizó la solicitud
 
-La información de solicitud se arma desde diversas fuentes:
+La información de solicitud se prepara a partir de diversas fuentes:
 
 + La entidad principal \(el solicitante\), que se determina en función a los datos de autorización\. Esto incluye los permisos agregados que están asociados con dicha entidad principal\.
 + Los datos de entorno, como la dirección IP, el agente del usuario, el estado de SSL habilitado, la hora del día\. Esta información se determina a partir de la solicitud\.
@@ -34,11 +34,11 @@ AWS permite recopilar esta información en un *contexto de solicitudes*, que se 
 
 ## Autenticación<a name="intro-structure-authentication"></a>
 
-Como entidad principal, usted debe estar autenticado \(haber iniciado sesión en AWS\) para enviar una solicitud a AWS. También hay unos cuantos servicios, como Amazon S3, que permiten solicitudes de usuarios anónimos. Para autenticar desde la consola, debe iniciar sesión con su nombre de usuario y contraseña\. Para autenticar desde el API o la CLI, debe proporcionar su clave de acceso y clave secreta\. También es posible que tenga que proporcionar información de seguridad adicional\. AWS le recomienda el uso de la autenticación multifactor \(MFA\) para aumentar la seguridad de su cuenta\. Para obtener más información acerca de las identidades de IAM que AWS puede autenticar, consulte [Identidades \(usuarios, grupos y roles\)(id.md)\.
+Como entidad principal, usted debe estar autenticado \(haber iniciado sesión en AWS\) para enviar una solicitud a AWS. También hay unos cuantos servicios, como Amazon S3, que permiten solicitudes de usuarios anónimos. Para autenticar desde la consola, debe iniciar sesión con su nombre de usuario y contraseña\. Para autenticar desde el API o la CLI, debe proporcionar su clave de acceso y clave secreta\. También es posible que tenga que proporcionar información de seguridad adicional\. AWS le recomienda el uso de la autenticación multifactor \(MFA\) para aumentar la seguridad de su cuenta\. Para obtener más información acerca de las identidades de IAM que AWS puede autenticar, consulte [Identidades \(usuarios, grupos y roles\)](id.md)\.
 
 ## Autorización<a name="intro-structure-authorization"></a>
 
-Durante la autorización, IAM utiliza los valores del contexto de la solicitud para comprobar políticas coincidentes y determinar si permite o denega la solicitud. Las políticas están almacenads en IAM como documentos JSON y especifican los permisos que se permiten o deniegan a entidades principales \(*políticas basadas en la identidad*\) o a recursos \(*políticas basadas en recursos*\)\.
+Durante la autorización, IAM utiliza los valores del contexto de la solicitud para comprobar políticas coincidentes y determinar si permite o deniega la solicitud. Las políticas están almacenads en IAM como documentos JSON y especifican los permisos que se permiten o deniegan a entidades principales \(*políticas basadas en la identidad*\) o a recursos \(*políticas basadas en recursos*\)\.
 
 IAM comprueba cada política que coincide con el contexto de su solicitud\. Si una política única incluye una acción denegada, IAM deniega toda la solicitud y deja de evaluarla. Esto se denomina una *denegación explícita*. Dado que las solicitudes se deniegan de *forma predeterminada*, IAM autoriza su solicitud únicamente si cada parte de su solicitud es permitida por las políticas coincidentes\. La lógica de evaluación sigue estas reglas:
 
