@@ -24,7 +24,7 @@ Cuando una entidad principal intenta utilizar la Consola de administración de A
 + Recursos sobre los cuales se realizan las acciones
 + Información principal, incluido el entorno desde el cual se realizó la solicitud
 
-La información de solicitud se prepara a partir de diversas fuentes:
+La información de solicitud se recopila a partir de diversas fuentes:
 
 + La entidad principal \(el solicitante\), que se determina en función a los datos de autorización\. Esto incluye los permisos agregados que están asociados con dicha entidad principal\.
 + Los datos de entorno, como la dirección IP, el agente del usuario, el estado de SSL habilitado, la hora del día\. Esta información se determina a partir de la solicitud\.
