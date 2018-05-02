@@ -1,4 +1,4 @@
-# ¿Qué es IAM??<a name="introduction"></a>
+# ¿Qué es IAM?<a name="introduction"></a>
 
 AWS Identity and Access Management \(IAM\) es un servicio web que le ayuda a controlar de forma segura el acceso a los recursos de AWS\. Utilice IAM para controlar quién está autenticado \(ha iniciado sesión\) y autorizado \(tiene permisos\) para utilizar recursos\.
 
@@ -16,7 +16,7 @@ Cuando usted crea por primera vez una cuenta de AWS, comienza con una identidad 
 
 ## Vídeo de introducción a IAM<a name="intro-video"></a>
 
-La capacitación y certificación de AWS ofrece una introducción en vídeo de 10 minutos a IAM::
+La capacitación y certificación de AWS ofrece una introducción en vídeo de 10 minutos a IAM:
 
 [Introducción a AWS Identity and Access Management](https://www.aws.training/learningobject/video?id=16448)
 
@@ -57,7 +57,7 @@ Para obtener una lista de servicios de AWS que funcionan con IAM, consulte [Serv
 
 **Eventualmente consistente**  
 
-IAM, al igual que muchos otros servicios de AWS, ofrece [consistencia consistente](https://wikipedia.org/wiki/Eventual_consistency)\. IAM consigue una alta disponibilidad replicando datos entre varios servidores ubicados en centros de datos de Amazon de todo el mundo\. Si una solicitud para cambiar algunos datos se realiza correctamente, el cambio se confirma y se almacena de forma segura\. Sin embargo, el cambio se debe replicar en IAM, lo que puede llevar algún tiempo. Estos cambios incluyen la creación o actualización de usuarios, grupos, roles o políticas\. Le recomendamos que no los incluya tales cambios de IAM en las rutas de código de gran importancia y alta disponibilidad de su aplicación\. En su lugar, realice los cambios de IAM en otra rutina de inicialización o configuración que ejecute con menos frecuencia\. Además, asegúrese de comprobar que los cambios se hayan propagado antes de que los flujos de trabajo de producción dependan de ellos\. Para obtener más información, consulte [Los cambios que yo realizo no están siempre visibles inmediatamente](troubleshoot_general.md#troubleshoot_general_eventual-consistency)\.
+IAM, al igual que muchos otros servicios de AWS, ofrece [consistencia consistente](https://wikipedia.org/wiki/Eventual_consistency)\. IAM consigue una alta disponibilidad replicando datos entre varios servidores ubicados en centros de datos de Amazon de todo el mundo\. Si una solicitud para cambiar algunos datos se realiza correctamente, el cambio se confirma y se almacena de forma segura\. Sin embargo, el cambio se debe replicar en IAM, lo que puede llevar algún tiempo. Estos cambios incluyen la creación o actualización de usuarios, grupos, roles o políticas\. Le recomendamos que no incluya tales cambios de IAM en las rutas de código de gran importancia y alta disponibilidad de su aplicación\. En su lugar, realice los cambios de IAM en otra rutina de inicialización o configuración que ejecute con menos frecuencia\. Además, asegúrese de comprobar que los cambios se hayan propagado antes de que los flujos de trabajo de producción dependan de ellos\. Para obtener más información, consulte [Los cambios que realizo no están siempre inmediatamente visibles](troubleshoot_general.md#troubleshoot_general_eventual-consistency)\.
 
 **Uso gratuito**  
 
@@ -79,7 +79,7 @@ AWS proporciona dos conjuntos de herramientas de línea de comandos: la [AWS Com
 
 **SDK de AWS**  
 
-AWS ofrece SDK \(kits de desarrollo de software\) que se componen de bibliotecas y código de muestra para diversos lenguajes de programación y plataformas \(Java, Python, Ruby, .NET, iOS, Android, etc\.\). Los SDK proporcionan una forma cómoda de crear acceso mediante programación a IAM y AWS\. Por ejemplo, los SDK se encargan de tareas como firmar solicitudes criptográficamente, gestionar los errores y reintentar las solicitudes de forma automática\. Para obtener información sobre los SDK de AWS, incluido cómo descargarlos e instalarlos, consulte la página [Herramientas para Amazon Web Services](https://aws.amazon.com/tools/) page\.
+AWS ofrece SDK \(kits de desarrollo de software\) que se componen de bibliotecas y código de muestra para diversos lenguajes de programación y plataformas \(Java, Python, Ruby, .NET, iOS, Android, etc\.\). Los SDK proporcionan una forma cómoda de crear acceso mediante programación a IAM y AWS\. Por ejemplo, los SDK se encargan de tareas como firmar solicitudes criptográficamente, gestionar los errores y reintentar las solicitudes de forma automática\. Para obtener información sobre los SDK de AWS, incluido cómo descargarlos e instalarlos, consulte la página [Herramientas para Amazon Web Services](https://aws.amazon.com/tools/)\.
 
 **API HTTPS de IAM**  
 
