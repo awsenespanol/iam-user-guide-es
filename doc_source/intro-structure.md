@@ -1,63 +1,68 @@
-# Understanding How IAM Works<a name="intro-structure"></a>
+# Entender cómo funciona IAM<a name="intro-structure"></a>
 
-Before you create users, you should understand how IAM works\. IAM provides the infrastructure necessary to control authentication and authorization for your account\. The IAM infrastructure includes the following elements:
+Antes de crear los usuarios, usted debe comprender cómo funciona IAM\. IAM proporciona la infraestructura necesaria para controlar la autenticación y la autorización para su cuenta. La infraestructura de IAM incluye los siguientes elementos:
 
-**Topics**
+**Temas**
 + [Principal](#intro-structure-principal)
-+ [Request](#intro-structure-request)
-+ [Authentication](#intro-structure-authentication)
-+ [Authorization](#intro-structure-authorization)
-+ [Actions](#intro-structure-actions)
-+ [Resources](#intro-structure-resources)
++ [Solicitud](#intro-structure-request)
++ [Autenticación](#intro-structure-authentication)
++ [Autorización](#intro-structure-authorization)
++ [Acciones](#intro-structure-actions)
++ [Recursos](#intro-structure-resources)
 
 ![\[IntroToIAM_Diagram\]](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/intro-diagram_800.png)
 
 ## Principal<a name="intro-structure-principal"></a>
 
-A principal is an entity that can take an action on an AWS resource\. Your administrative IAM user is your first *principal*\. Over time, you can allow users and services to assume a role\. You can support federated users or programmatic access to allow an application to access your AWS account\. Users, roles, federated users, and applications are all AWS principals\.
+Una entidad principal es una entidad que puede realizar una acción en un recurso de AWS\. Su usuario de IAM administrativo es su primera entidad principal\. Con el paso del tiempo, puede condecer a los usuarios y servicios asumir un rol\. Puede permitir a los usuarios federados o el acceso mediante programación para permitir a una aplicación acceder a su cuenta de AWS. Los usuarios, los roles, los usuarios federados y las aplicaciones son todos ellos entidades principales de AWS\.
 
-## Request<a name="intro-structure-request"></a>
+## Solicitud<a name="intro-structure-request"></a>
 
-When a principal tries to use the AWS Management Console, the AWS API, or the AWS CLI, that principal sends a *request* to AWS\. A request specifies the following information:
-+ Actions \(or operations\) that the principal wants to perform
-+ Resources upon which the actions are performed
-+ Principal information, including the environment from which the request was made
+Cuando una entidad principal intenta utilizar la Consola de administración de AWS, el API de AWS o la AWS CLI, la entidad principal envía una *solicitud* a AWS\. Una solicitud especifica la siguiente información:
 
-Request information is assembled from several sources:
-+ Principal \(the requester\), which is determined based on the authorization data\. This includes the aggregate permissions that are associated with that principal\. 
-+ Environment data, such as the IP address, user agent, SSL enabled status, or the time of day\. This information is determined from the request\.
-+ Resource data, or data related to the resource that is being requested\. This can include information such as a DynamoDB table name or a tag on an Amazon EC2 instance\. This information is determined from the request\.
++ Acciones \(u operaciones\) que la entidad principal desea realizar
++ Recursos sobre los cuales se realizan las acciones
++ Información principal, incluido el entorno desde el cual se realizó la solicitud
 
-AWS gathers this information into a *request context*, which is used to evaluate and authorize the request\.
+La información de solicitud se arma desde diversas fuentes:
 
-## Authentication<a name="intro-structure-authentication"></a>
++ La entidad principal \(el solicitante\), que se determina en función a los datos de autorización\. Esto incluye los permisos agregados que están asociados con dicha entidad principal\.
++ Los datos de entorno, como la dirección IP, el agente del usuario, el estado de SSL habilitado, la hora del día\. Esta información se determina a partir de la solicitud\.
++ Los datos de recursos o los datos relacionados con el recurso que se está solicitando\. Esto puede incluir información como, por ejemplo, un nombre de una tabla de DynamoDB o una etiqueta de una instancia Amazon EC2\. Esta información se determina a partir de la solicitud\.
 
-As a principal, you must be authenticated \(signed in to AWS\) to send a request to AWS\. Alternatively, a few services, like Amazon S3, allow requests from anonymous users\. To authenticate from the console, you must sign in with your user name and password\. To authenticate from the API or CLI, you must provide your access key and secret key\. You might also be required to provide additional security information\. AWS recommends that you use multi\-factor authentication \(MFA\) to increase the security of your account\. To learn more about the IAM identities that AWS can authenticate, see [Identities \(Users, Groups, and Roles\)](id.md)\.
+AWS permite recopilar esta información en un *contexto de solicitudes*, que se utiliza para evaluar y autorizar la solicitud\.
 
-## Authorization<a name="intro-structure-authorization"></a>
+## Autenticación<a name="intro-structure-authentication"></a>
 
-During authorization, IAM uses values from the request context to check for matching policies and determine whether to allow or deny the request\. Policies are stored in IAM as JSON documents and specify the permissions that are allowed or denied for principals \(*identity\-based policies*\) or resources \(*resource\-based policies*\)\. 
+Como entidad principal, usted debe estar autenticado \(haber iniciado sesión en AWS\) para enviar una solicitud a AWS. También hay unos cuantos servicios, como Amazon S3, que permiten solicitudes de usuarios anónimos. Para autenticar desde la consola, debe iniciar sesión con su nombre de usuario y contraseña\. Para autenticar desde el API o la CLI, debe proporcionar su clave de acceso y clave secreta\. También es posible que tenga que proporcionar información de seguridad adicional\. AWS le recomienda el uso de la autenticación multifactor \(MFA\) para aumentar la seguridad de su cuenta\. Para obtener más información acerca de las identidades de IAM que AWS puede autenticar, consulte [Identidades \(usuarios, grupos y roles\)(id.md)\.
 
-IAM checks each policy that matches the context of your request\. If a single policy includes a denied action, IAM denies the entire request and stops evaluating\. This is called an *explicit deny*\. Because requests are *denied by default*, IAM authorizes your request only if every part of your request is allowed by the matching policies\. The evaluation logic follows these rules:
-+ By default, all requests are denied\.
-+ An explicit allow overrides this default\.
-+ An explicit deny overrides any allows\.
+## Autorización<a name="intro-structure-authorization"></a>
 
-**Note**  
-By default, only the [AWS account root user](id_root-user.md) has access to all the resources in that account\. So if you are not signed in as the root user, you must have permissions granted by a policy\.
+Durante la autorización, IAM utiliza los valores del contexto de la solicitud para comprobar políticas coincidentes y determinar si permite o denega la solicitud. Las políticas están almacenads en IAM como documentos JSON y especifican los permisos que se permiten o deniegan a entidades principales \(*políticas basadas en la identidad*\) o a recursos \(*políticas basadas en recursos*\)\.
 
-## Actions<a name="intro-structure-actions"></a>
+IAM comprueba cada política que coincide con el contexto de su solicitud\. Si una política única incluye una acción denegada, IAM deniega toda la solicitud y deja de evaluarla. Esto se denomina una *denegación explícita*. Dado que las solicitudes se deniegan de *forma predeterminada*, IAM autoriza su solicitud únicamente si cada parte de su solicitud es permitida por las políticas coincidentes\. La lógica de evaluación sigue estas reglas:
 
-After your request has been authenticated and authorized, AWS approves the actions in your request\. Actions are defined by a service, and are the things that you can do to a resource, such as viewing, creating, editing, and deleting that resource\. For example, IAM supports around 40 actions for a user resource, including the following actions:
++ De forma predeterminada, se deniegan todas las solicitudes\.
++ Un permiso explícito anula esta opción predeterminada\.
++ Una denegación explícita invalida cualquier permiso concedido\.
+
+**Nota**  
+
+De forma predeterminada, solo el [usuario raíz de la cuenta AWS](id_root-user.md) tiene acceso a todos los recursos de la cuenta\. Por lo tanto, si usted no ha iniciado sesión como usuario raíz, debe disponer de permisos concedidos por una política\.
+
+## Acciones<a name="intro-structure-actions"></a>
+
+Una vez que la solicitud ha sido autenticada y autorizada, AWS aprueba las acciones en su solicitud. Las acciones se definen mediante un servicio y son las cosas que usted puede hacer en un recurso, como visualizar, crear, editar y eliminar dicho recurso. Por ejemplo, IAM admite unas 40 acciones para un recurso de usuario, incluidas las siguientes acciones:
+
 + `CreateUser`
 + `DeleteUser`
 + `GetUser`
 + `UpdateUser`
 
-To allow a principal to perform an action, you must include the necessary actions in a policy that applies to the principal or the affected resource\.
+Para permitir a una entidad principal realizar una acción, usted debe incluir las acciones necesarias en una política que se aplica a la entidad principal o al recurso afectado\.
 
-## Resources<a name="intro-structure-resources"></a>
+## Recursos<a name="intro-structure-resources"></a>
 
-After AWS approves the actions in your request, those actions can be performed on the related resources within your account\. A resource is an entity that exists within a service\. Examples include an Amazon EC2 instance, an IAM user, and an Amazon S3 bucket\. The service defines a set of actions that can be performed on each resource\. If you create a request to perform an unrelated action on a resource, that request is denied\. For example, if you request to delete an IAM role but provide an IAM group resource, the request fails\.
+Después de que AWS aprueba las acciones en su solicitud, dichas acciones pueden realizarse en los recursos relacionados dentro de su cuenta\. Un recurso es una entidad que existe dentro de un servicio\. Entre los ejemplos se incluyen una instancia Amazon EC2, un usuario de IAM y un bucket de Amazon S3\. El servicio define un conjunto de acciones que se pueden llevar a cabo en cada recurso\. Si usted crea una solicitud para llevar a cabo una acción independiente en un recurso, dicha solicitud se deniega\. Por ejemplo, si solicita eliminar un rol IAM pero proporciona un recurso de grupo de IAM, la solicitud falla\.
 
-When you provide permissions using an identity\-based policy in IAM, then you provide permissions to access resources only within the same account\. If you need to make a request in a different account, the resource in that account must have an attached resource\-based policy that allows access from your account\. Otherwise, you must assume a role within that account with the permissions that you need\. To learn more about cross\-account permissions, see [Granting Permissions Across AWS Accounts](access_permissions-required.md#UserPermissionsAcrossAccounts) \.
+Cuando usted proporciona permisos utilizando una política basada en identidades en IAM, entonces usted proporciona permisos para acceder a los recursos únicamente dentro de la misma cuenta\. Si necesita realizar una solicitud en otra cuenta, el recurso en dicha cuenta debe tener una política basada en recursos adjunta que permita el acceso desde su cuenta\. De lo contrario, usted debe asumir un rol dentro de dicha cuenta con los permisos que necesita\. Para obtener más información sobre los permisos entre cuentas, consulte [Conceder permisos entre cuentas de AWS](access_permissions-required.md#UserPermissionsAcrossAccounts)\.

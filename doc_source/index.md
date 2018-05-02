@@ -1,4 +1,4 @@
-# AWS Identity and Access Management User Guide
+# Guía del usuario de AWS Identity and Access Management
 
 -----
 *****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
@@ -13,9 +13,9 @@ Amazon's trademarks and trade dress may not be used in
      sponsored by Amazon.
 
 -----
-## Contents
-+ [What Is IAM?](introduction.md)
-   + [Understanding How IAM Works](intro-structure.md)
+## Contenido
++ [¿Qué es IAM?](introduction.md)
+   + [Entender cómo funciona IAM](intro-structure.md)
    + [Overview of Identity Management: Users](introduction_identity-management.md)
    + [Overview of Access Management: Permissions and Policies](introduction_access-management.md)
    + [Security Features Outside of IAM](introduction_security-outside-iam.md)
