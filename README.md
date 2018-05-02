@@ -1,7 +1,7 @@
-## Iam User Guide
+## Guía del usuario
 
-Official documentation source for the AWS Identity and Access Management (IAM) User Guide
+Fuente de documentación inoficial de la Guía del usuario de AWS Identity and Access Management (IAM) 
 
-## License Summary
+## Resumen de licencia
 
-This sample code is made available under a modified MIT license. See the LICENSE file.
+Este código de muestra está disponible bajo una licencia MIT modificada. Ver el archivo LICENCIA.
