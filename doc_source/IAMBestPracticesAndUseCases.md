@@ -1,7 +1,7 @@
-# IAM Best Practices and Use Cases<a name="IAMBestPracticesAndUseCases"></a>
+# Mejores prácticas recomendadas y casos de uso de IAM<a name="IAMBestPracticesAndUseCases"></a>
 
-To get the greatest benefits from IAM, take time to learn the recommended best practices\. One way to do this is to see how IAM is used in real\-world scenarios to work with other AWS services\. 
+Para obtener los mayores beneficios de IAM, tómese tiempo para aprender las mejores prácticas recomendadas\. Una forma de hacerlo es ver cómo IAM se utiliza en situaciones realistas en combinación con otros servicios de AWS\.
 
-**Topics**
-+ [IAM Best Practices](best-practices.md)
-+ [Business Use Cases](IAM_UseCases.md)
+**Temas**
++ [Mejores prácticas de IAM](best-practices.md)
++ [Casos de uso empresarial](IAM_UseCases.md)
