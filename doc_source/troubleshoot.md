@@ -1,11 +1,12 @@
-# Troubleshooting IAM<a name="troubleshoot"></a>
+# Solución de problemas de IAM<a name="troubleshoot"></a>
 
-If you encounter access\-denied issues or similar difficulties when working with AWS Identity and Access Management \(IAM\), consult the topics in this section\.
+Si usted tiene problemas de acceso denegado o dificultades similares cuando trabaja con AWS Identity and Access Management \(IAM\), consulte los temas de esta sección\.
 
-**Topics**
-+ [Troubleshooting General Issues](troubleshoot_general.md)
-+ [Troubleshoot IAM Policies](troubleshoot_policies.md)
-+ [Troubleshooting IAM Roles](troubleshoot_roles.md)
-+ [Troubleshooting Amazon EC2 and IAM](troubleshoot_iam-ec2.md)
-+ [Troubleshooting Amazon S3 and IAM](troubleshoot_iam-s3.md)
-+ [Troubleshooting SAML 2\.0 Federation with AWS](troubleshoot_saml.md)
+**Temas**
+
++ [Solución de problemas generales](troubleshoot_general.md)
++ [Solución de problemas de políticas de IAM](troubleshoot_policies.md)
++ [Solución de problemas de roles de IAM](troubleshoot_roles.md)
++ [Solución de problemas de Amazon EC2 e IAM](troubleshoot_iam-ec2.md)
++ [Solución de problemas de Amazon S3 e IAM](troubleshoot_iam-s3.md)
++ [Solución de problemas de la federación SAML 2\.0 con AWS](troubleshoot_saml.md)
